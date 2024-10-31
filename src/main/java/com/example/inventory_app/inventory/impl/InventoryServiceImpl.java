@@ -48,4 +48,18 @@ public class InventoryServiceImpl implements InventoryService {
     public List<Item> findItemsWithSamePrice(int price) {
         return inventoryRepository.findAllByPrice(price);
     }
+
+    @Override
+    public Item updateItem(Long id, Item item) {
+        Item itemToUpdate = inventoryRepository.findById(id).orElse(null);
+        if(itemToUpdate != null){
+            itemToUpdate.setName(item.getName());
+            itemToUpdate.setImage(item.getImage());
+            itemToUpdate.setCart(item.getCart());
+            itemToUpdate.setPrice(item.getPrice());
+            itemToUpdate.setDescription(item.getDescription());
+            return inventoryRepository.save(itemToUpdate);
+        }
+        return item;
+    }
 }

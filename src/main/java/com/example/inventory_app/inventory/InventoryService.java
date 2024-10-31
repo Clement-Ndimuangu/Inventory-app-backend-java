@@ -14,4 +14,6 @@ public interface InventoryService {
     Item DeleteById(Long id);
 
     List<Item> findItemsWithSamePrice(int price);
+
+    Item updateItem(Long id, Item item);
 }

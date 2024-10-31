@@ -44,4 +44,9 @@ public class InventoryController {
     public Item deleteById(@PathVariable Long id){
         return inventoryService.DeleteById(id);
     }
+
+    @PutMapping("/{id}")
+    public Item updateItem(@PathVariable Long id, @RequestBody Item item){
+        return inventoryService.updateItem(id, item);
+    }
 }

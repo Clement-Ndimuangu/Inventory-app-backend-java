@@ -20,4 +20,9 @@ public class CartController {
     public Cart getCart(@PathVariable Long id){
         return cartServices.getCart(id);
     }
+
+    @PutMapping("/removeitem/{id}")
+    public Cart removeItem(@PathVariable Long id){
+        return cartServices.removeItem(id);
+    }
 }

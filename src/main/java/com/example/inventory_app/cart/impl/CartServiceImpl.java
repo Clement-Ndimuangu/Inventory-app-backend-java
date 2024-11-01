@@ -44,4 +44,15 @@ public class CartServiceImpl implements CartServices {
         }
         return cart;
     }
+
+    @Override
+    public Cart removeItem(Long id) {
+        Item item = inventoryRepository.findById(id).orElse(null);
+        if(item != null){
+            item.setCart(null);
+            inventoryRepository.save(item);
+            return cartRepository.findById(1L).orElse(null);
+        }
+        return null;
+    }
 }

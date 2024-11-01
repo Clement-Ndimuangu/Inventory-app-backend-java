@@ -24,7 +24,6 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public List<Item> findAllItems(String search) {
-        System.out.println("reached this point");
         if(search != null){
             return inventoryRepository.findAllByNameIgnoreCaseContaining(search);
         }else {

@@ -3,6 +3,7 @@ package com.example.inventory_app.cart;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RequestMapping("/api/carts")
 public class CartController {
     private CartServices cartServices;
